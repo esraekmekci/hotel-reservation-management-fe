@@ -34,16 +34,16 @@ To get started with this project, follow these steps:
 
 * **You can filter rooms by date range, room type and/or room capacity.**
 
-![rooms](src\assets\available_rooms.jpg)
+![rooms](src/assets/available_rooms.jpg)
 
 * **You can create reservation with services and also control check in/check out status.**
 
-![create_reservation](src\assets\create_reservation.jpg)
+![create_reservation](src/assets/create_reservation.jpg)
 
 * **You can view reservations and also check their services with quantities.**
 
-![reservations](src\assets\reservations.jpg)
+![reservations](src/assets/reservations.jpg)
 
 * **You can view features and rooms with those features, also you can easily add, change or delete a feature.**
 
-![edit_feature](src\assets\edit_feature.jpg)
+![edit_feature](src/assets/edit_feature.jpg)
