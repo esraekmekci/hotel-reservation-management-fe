@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace; font-size: 48px; font-weight: bold; color: #2f0755;
+}
+
+.button_container {
+    text-align: right;
+}
+
+button {
+    padding: 14px 20px;
+    margin: 8px 8px;
+}
+
+.fullName > mat-form-field {
+    margin-left: 20px;
+    margin-right: 20px;
+}

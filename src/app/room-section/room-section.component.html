@@ -1,0 +1,63 @@
+<div class="head-cont">
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date" (dateChange)="showAvailableRooms()">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    
+      @if (range.controls.start.hasError('matStartDateInvalid')) {
+        <mat-error>Invalid start date</mat-error>
+      }
+      @if (range.controls.end.hasError('matEndDateInvalid')) {
+        <mat-error>Invalid end date</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select Room Type</mat-label>
+      <mat-select [(ngModel)]="selectedRoomType" (selectionChange)="showAvailableRooms()">
+        <mat-option *ngFor="let roomType of roomTypes" [value]="roomType">{{ roomType }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select Capacity</mat-label>
+      <mat-select [(ngModel)]="selectedCapacity" (selectionChange)="showAvailableRooms()">
+        <mat-option *ngFor="let capacity of capacities" [value]="capacity">{{ capacity }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="button-cont">
+      <button type="button" class="btn btn-outline-success" (click)="resetFields()">Reset Filter</button>  
+      <button type="button" class="btn btn-outline-primary" (click)="navigateToCreateRoom()">New Room</button> 
+    </div>
+</div>
+
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Room Number</th>
+        <th scope="col">Type</th>
+        <th scope="col">Capacity</th>
+        <th scope="col">Features</th>
+        <th scope="col">Price</th>
+        <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of filteredRooms">
+          <td>{{ room.roomNumber }}</td>
+          <td>{{ room.roomType }}</td>
+          <td>{{ room.capacity }}</td>
+          <td>{{ room.features }}</td>
+          <td>{{ room.price }}</td>
+          <td><button type="button" class="btn btn-outline-info" (click)="navigateToEditRoom(room.id)">Edit</button></td>
+          <td><button type="button" class="btn btn-outline-success" (click)="navigateToCreateReservation(room.id)">Create Reservation</button></td>  
+          <td><button type="button" class="btn btn-outline-danger" (click)="deleteRoom(room.id)">Delete</button></td>
+        </tr>
+    </tbody>
+    
+  </table>

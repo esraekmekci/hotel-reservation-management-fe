@@ -1,27 +1,49 @@
-# HotelReservationAppFe
+# Hotel Reservation Management System - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+## Overview
+This project is the frontend implementation of the Hotel Reservation Management System. It provides a user interface built with Angular and styled using Bootstrap to interact with the backend API.
 
-## Development server
+## Getting Started
+To get started with this project, follow these steps:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Clone the Repository:** Clone this repository to your local machine using git clone 
+`git clone https://github.com/esraekmekci/hotel-reservation-management-fe.git`.
 
-## Code scaffolding
+2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies using `npm install`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. **Configuration:** Update the API endpoint in the environment configuration file (`src/app/environment.ts`) to point to your backend server.
 
-## Build
+4. **Build and Run:** Use Angular CLI commands such as `ng serve` to build and run the project locally.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+5. **Explore:** Access the application in your web browser and explore the functionalities provided.
 
-## Running unit tests
+## Features
+* **Reservation Management:** Allows admin to view, create, update, and cancel reservations.
+* **Customer Management:** Provides functionalities for managing customer information.
+* **Room Management:** Allows admin to browse available rooms and their features by filtering by date range, type and/or capacity.
+* **Feature and Service Management:** Supports the addition and modification of features available in rooms and services offered by the hotel.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Technologies Used
+* Angular
+* JavaScript/TypeScript
+* Bootstrap
+* HTML
+* CSS
 
-## Running end-to-end tests
+## Sample Images
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* **You can filter rooms by date range, room type and/or room capacity.**
 
-## Further help
+![rooms](src\assets\available_rooms.jpg)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* **You can create reservation with services and also control check in/check out status.**
+
+![create_reservation](src\assets\create_reservation.jpg)
+
+* **You can view reservations and also check their services with quantities.**
+
+![reservations](src\assets\reservations.jpg)
+
+* **You can view features and rooms with those features, also you can easily add, change or delete a feature.**
+
+![edit_feature](src\assets\edit_feature.jpg)

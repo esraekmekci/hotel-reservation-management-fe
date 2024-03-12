@@ -1,0 +1,18 @@
+mat-form-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+mat-dialog-title {
+    justify-content: center;
+    font: optional;
+}
+
+mat-dialog-actions {
+    justify-content: end;
+}
+
+mat-dialog-actions > button {
+    margin: 0 5px;
+}

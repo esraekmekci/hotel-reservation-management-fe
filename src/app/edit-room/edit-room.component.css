@@ -1,0 +1,26 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace; font-size: 48px; font-weight: bold; color: #2f0755;
+}
+
+.button_container {
+    text-align: right;
+}
+
+button {
+    padding: 14px 20px;
+    margin: 8px 8px;
+}
+
+mat-checkbox {
+    margin: 0 12px;
+}
+
+.feature-section {
+    margin: 12px 0;
+}

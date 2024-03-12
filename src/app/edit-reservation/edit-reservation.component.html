@@ -1,0 +1,64 @@
+<h1>EDIT RESERVATION</h1>
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3>Select Info</h3>
+      <mat-form-field>
+          <mat-label>Select Room</mat-label>
+          <mat-select [(ngModel)]="selectedRoom.roomNumber" disabled>
+            <mat-option *ngFor="let room of rooms" [value]="room.roomNumber">{{ room.roomNumber }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-label>Select Customer</mat-label>
+          <mat-select [(ngModel)]="selectedCustomerIds"  multiple (ngModelChange)="checkCapacity()" >
+              <mat-option *ngFor="let customer of customers" [value]="customer.id" [disabled]="isOptionDisabled(customer.id)">{{ customer.name }} {{customer.surname}}</mat-option>
+          </mat-select>
+          <mat-hint>{{ selectedCustomerIds.length }}/{{ capacity }} selected</mat-hint>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+            <input matStartDate formControlName="start" [placeholder]="currentReservation.checkInDate" >
+            <input matEndDate formControlName="end" [placeholder]="currentReservation.checkOutDate" >
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker ></mat-date-range-picker>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-label>Checked In?</mat-label>
+          <mat-select [(ngModel)]="isCheckedIn">
+              <mat-option value="true">YES</mat-option>
+              <mat-option value="false">NO</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-label>Checked Out?</mat-label>
+          <mat-select [(ngModel)]="isCheckedOut">
+              <mat-option value="true">YES</mat-option>
+              <mat-option value="false">NO</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-sm">
+      <h3>Select Services</h3>
+      <div *ngFor="let service of services; let i = index" >
+        <div >
+      <mat-form-field >
+        <mat-label>Quantity For {{service.name}}</mat-label>
+        <input matInput [id]="'quantity_' + i" type="number" min="0" [value]="serviceQuantities[service.id]" [(ngModel)]="serviceQuantities[service.id]" (change)="enableButton(i)" >
+      </mat-form-field>
+      <button type="button" [disabled]="serviceQuantities[service.id] <= 0 || serviceQuantities[service.id] === undefined" [id]="'button_' + i" class="btn btn-outline-info" (click)="saveService(service.id, i)">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button_container">
+  <button class="btn btn-outline-info" #save (click)="saveReservation()">Save Reservation</button>
+  <button class="btn btn-outline-danger" #cancel (click)="navigateToHome()">Cancel</button>
+</div>

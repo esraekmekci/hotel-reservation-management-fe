@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>NEW SERVICE</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Service Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Unit Price</mat-label>
+    <input matInput type="number" [(ngModel)]="data.unitPrice">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="btn btn-outline-danger"  (click)="onNoClick()">Cancel</button>
+  <button class="btn btn-outline-success"  [mat-dialog-close]="data" (click)="saveService()">Save</button>
+</mat-dialog-actions>

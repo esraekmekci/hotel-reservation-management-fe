@@ -1,0 +1,28 @@
+<div class="head-container">
+  <input id="filter" type="text" (input)="onSearchInput($event)" placeholder="Search by service name">
+  <button type="button" class="btn btn-outline-primary createbtn" (click)="openDialog(false, null)">New Service</button> 
+</div>
+
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Service Name</th>
+        <th scope="col">Unit Price</th>
+        <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let service of filteredServices; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ service.name }}</td>
+          <td>{{ service.unitPrice }}</td>
+          <td><button class="btn btn-outline-info" (click)="openDialog(true, service.id)">Edit</button></td>
+          <td><button type="button" class="btn btn-outline-danger" (click)="deleteService(service.id)">Delete</button></td>
+      </tr>
+    </tbody>
+    
+  </table>
+
+  

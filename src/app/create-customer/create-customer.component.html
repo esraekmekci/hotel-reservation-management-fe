@@ -1,0 +1,39 @@
+<h1>NEW CUSTOMER</h1>
+<br/>
+<div class="container">
+    <br/>
+      <mat-form-field>
+        <mat-label>Identity Number</mat-label>
+        <input matInput maxlength="11" [(ngModel)]="identityNumber">
+      </mat-form-field>
+    <br/>
+    <div class="fullName">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Surname</mat-label>
+            <input matInput [(ngModel)]="surname">
+          </mat-form-field>
+    </div>
+    <br/>
+      <mat-form-field>
+        <mat-label>Phone Number</mat-label>
+        <span matTextPrefix>+90 &nbsp;</span>
+        <input matInput placeholder="5555551234" [(ngModel)]="phone" maxlength="10" pattern="[0-9]*">
+      </mat-form-field>
+    <br/>
+      <mat-form-field>
+        <mat-label>Birthdate</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="birthdate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+</div>
+<br/>
+<br/>
+<div class="button_container">
+  <button class="btn btn-outline-info" #save (click)="saveCustomer()">Save Customer</button>
+  <button class="btn btn-outline-danger" #cancel (click)="navigateToHome()">Cancel</button>
+</div>

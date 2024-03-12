@@ -1,0 +1,46 @@
+<h1>UPDATE ROOM</h1>
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3>Select Info</h3>
+      <br/>
+      <mat-form-field>
+        <mat-label>Room Number</mat-label>
+        <input matInput type="number" [(ngModel)]="roomNumber" disabled>
+      </mat-form-field>
+    <br/>
+      <mat-form-field>
+        <mat-label>Room Type</mat-label>
+        <mat-select [(ngModel)]="roomType" >
+              <mat-option *ngFor="let type of roomTypes" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br/>
+      <mat-form-field>
+        <mat-label>Room Capacity</mat-label>
+        <mat-select [(ngModel)]="capacity" >
+              <mat-option *ngFor="let number of capacities" [value]="number">{{ number }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br/>
+      <mat-form-field>
+        <mat-label>Room Price</mat-label>
+        <input matInput type="number" [(ngModel)]="price">
+      </mat-form-field>
+  </div>
+  <div class="col-sm">
+    <h3>Select Features</h3>
+    <br/>
+    <section *ngFor="let feature of featureList" class="feature-section">
+        <div>
+            <mat-checkbox color="primary" [checked]="feature.checked" (change)="updateFeatures(feature.id)">{{ feature.name }}</mat-checkbox>
+        </div>
+    </section>
+  <br/>
+</div>
+</div>
+<div class="button_container">
+  <button class="btn btn-outline-info" #save (click)="saveRoom()">Save Room</button>
+  <button class="btn btn-outline-danger" #cancel (click)="navigateToHome()">Cancel</button>
+</div>

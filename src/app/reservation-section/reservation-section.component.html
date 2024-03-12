@@ -1,0 +1,48 @@
+<div class="head-container">
+  <input id="filter" type="text" (input)="onSearchInput($event)" placeholder="Search by customer name or room number">
+</div>
+
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Room Number</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col" class="services-column">Services</th>
+      <th scope="col">Check In Date</th>
+      <th scope="col">Check Out Date</th>
+      <th scope="col">Checked In</th>
+      <th scope="col">Checked Out</th>
+      <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of filteredReservations; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{ reservation.roomNumber }}</td>
+        <td>{{ reservation.customerNames }}</td>
+        <td >
+          <div class="collapse-container">
+          <button class="btn btn-outline-info" type="button" data-toggle="collapse" [attr.data-target]="'#collapse_' + i" aria-expanded="false" aria-controls="collapseExample">
+            Click to Expand
+          </button>
+          </div>
+          <div class="collapse" [id]="'collapse_' + i">
+            <br/>
+            <div class="card card-body">
+                <li *ngFor="let service of reservation.services">{{ service.name }} ({{service.quantity}})</li>
+            </div>
+        </div>
+        </td>
+        <td>{{ reservation.checkInDate }}</td>
+        <td>{{ reservation.checkOutDate }}</td>
+        <td>{{ reservation.checkedIn }}</td>
+        <td>{{ reservation.checkedOut }}</td>
+        <td><button type="button" class="btn btn-outline-info" (click)="navigateToEditReservation(reservation.id)">Edit</button></td>
+        <td><button type="button" class="btn btn-outline-danger" (click)="deleteReservation(reservation.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+    
